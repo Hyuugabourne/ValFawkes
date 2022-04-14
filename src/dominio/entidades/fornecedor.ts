@@ -1,4 +1,4 @@
-import { Entidade } from "../core/entidade";
+import { Entidade } from '../core/entidade'
 
 type FornecedorProps = {
     nome: string,
@@ -8,5 +8,5 @@ type FornecedorProps = {
 }
 
 export class Fornecedor extends Entidade<FornecedorProps> {
-    
+
 }

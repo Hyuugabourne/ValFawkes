@@ -1,4 +1,4 @@
-import { Entidade } from "../core/entidade";
+import { Entidade } from '../core/entidade'
 
 type NaturezaDespesaProps = {
     sigla: string,
@@ -6,5 +6,5 @@ type NaturezaDespesaProps = {
 }
 
 export class NaturezaDespesa extends Entidade<NaturezaDespesaProps> {
-    
+
 }

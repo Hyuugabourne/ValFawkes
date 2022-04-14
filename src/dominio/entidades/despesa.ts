@@ -1,6 +1,6 @@
-import { Entidade } from "../core/entidade";
-import { Fornecedor } from "./fornecedor";
-import { NaturezaDespesa } from "./natureza_despesa";
+import { Entidade } from '../core/entidade'
+import { Fornecedor } from './fornecedor'
+import { NaturezaDespesa } from './natureza_despesa'
 
 type DespesaProps = {
     mes: number,
@@ -11,5 +11,5 @@ type DespesaProps = {
 }
 
 export class Despesa extends Entidade<DespesaProps> {
-    
+
 }

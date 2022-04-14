@@ -1,32 +1,31 @@
-import { Deputado, DeputadoProps } from "../../dominio/entidades/deputado";
+import { Deputado, DeputadoProps } from '../../dominio/entidades/deputado'
+import { CoreRepo } from '../core.repo'
 
+export class DeputadoRepository extends CoreRepo<Deputado> {
+  constructor (chave?: string) {
+    super(chave ?? 'deputados')
+  }
 
-export class DeputadoRepository {
-    private dados: Deputado[];
+  get (matricula: number): Deputado {
+    return this.dados.find((it) => it.props.matricula === matricula)
+  }
 
-    constructor() {
-        this.dados = require("../entities/deputado.json");
-    }
+  list (): Deputado[] {
+    return this.dados
+  }
 
-    get(matricula: number): Deputado {
-        return this.dados.find((it) => it.props.matricula === matricula);
-    }
+  save (props: DeputadoProps): Deputado {
+    const deputado = Deputado.create(props)
+    this.dados.push(deputado)
+    this.escrever()
+    return deputado
+  }
 
-    list(): Deputado[] {
-        return this.dados;
-    }
-
-    save(props: DeputadoProps): Deputado {
-        const deputado = Deputado.create(props);
-        this.dados.push(deputado);
-        return deputado;
-    }
-
-    update(props: DeputadoProps) {
-        this.dados.forEach((d) => {
-        if (d.props.matricula === props.matricula) {
-            d.props = props;
-        }
-        });
-    }
+  update (props: DeputadoProps) {
+    this.dados.forEach((d) => {
+      if (d.props.matricula === props.matricula) {
+        d.props = props
+      }
+    })
+  }
 }
